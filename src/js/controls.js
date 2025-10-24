@@ -40,24 +40,45 @@ export class BaseMapControl {
   onAdd(map) {
     this._map = map;
 
+    // contenedor principal del control
     const container = document.createElement('div');
-    container.className = 'maplibregl-ctrl maplibregl-mapa-group';
+    container.className = 'maplibregl-ctrl basemap-control';
+    // texto o título
+    // const label = document.createElement('span');
+    // label.className = 'basemap-title';
+    // label.textContent = 'Mapas base';
+    // container.appendChild(label);
 
-    // Crear un botón por cada estilo definido en config
-    Object.entries(mapConfig.styles).forEach(([nombre, url]) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.title = `Estilo ${nombre}`;
-      button.innerHTML = nombre; // primera letra (C, O, S)
-      button.className = 'maplibregl-ctrl-icon';
+    // grupo de radio buttons
+    const form = document.createElement('form');
+    form.className = 'basemap-form';
 
-      button.addEventListener('click', () => {
-        map.setStyle(url);
+    // crear un radio por cada estilo definido en config.js
+    Object.entries(mapConfig.styles).forEach(([nombre, url], i) => {
+      const label = document.createElement('label');
+      label.className = 'basemap-option';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'basemap';
+      input.value = nombre;
+      input.title = `Estilo ${nombre}`;
+      if (nombre === mapConfig.defaultStyle) input.checked = true;
+
+      // cambia el estilo del mapa cuando se selecciona
+      input.addEventListener('change', () => {
+        if (input.checked) map.setStyle(url);
       });
 
-      container.appendChild(button);
+      const span = document.createElement('span');
+      span.textContent = nombre;
+
+      label.appendChild(input);
+      label.appendChild(span);
+      form.appendChild(label);
     });
 
+    container.appendChild(form);
     return container;
   }
 

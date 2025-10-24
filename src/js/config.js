@@ -16,7 +16,7 @@ export const mapConfig = {
   
   styles: {
     Claro: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-    Oscuro: 'https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json',
+    
     Demo: 'https://demotiles.maplibre.org/style.json'
     
   },
