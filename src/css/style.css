@@ -1,0 +1,62 @@
+/* Variables generales*/
+html {
+    font-size: 16px; /* base común en la mayoría de navegadores */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+/* Estilos particulares*/
+
+
+.contenedorMapa{
+    /* Hace que el contenedor del mapa ocupe toda la pantalla */
+    width: 100%;
+    height: 100vh; /* vh = 100% del alto visible de la ventana */
+    display: flex;
+    
+}
+
+
+#map{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: .0625rem solid ;       
+}
+
+
+/**/
+
+
+.maplibregl-ctrl-icon {
+  font-size: 0.9rem;
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+}
+
+.maplibregl-ctrl-icon:hover,
+.maplibregl-mapa-group {
+  background: #f0f0f0;
+}
+
+.maplibregl-ctrl-group,
+.maplibregl-mapa-group{
+  gap: 0.25rem;
+}
+.maplibregl-mapa-group {
+    display: flex; 
+}
