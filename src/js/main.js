@@ -39,20 +39,20 @@ map.on('load', () => {
   });
 
   // 2️⃣ WMS
-  addWMSLayer(map, {
-    id: 'uso_suelo',
-    url: 'https://ide.sedatu.gob.mx/geoserver/wms',
-    layers: 'geoportal:uso_suelo',
+  agregarWMS(map, {
+    id: 'laboratoriosNacionales',
+    url: 'https://dev-dadsig-gema.crip.conahcyt.mx/geoserver/wms',
+    layers: 'humanidades_ciencias:hcti_lab_nacionales_conahcyt_040724_xy_p',
     opacity: 0.8
   });
 
   // 3️⃣ WFS
-  addWFSLayer(map, {
-    id: 'localidades',
-    url: 'https://ide.sedatu.gob.mx/geoserver/geoportal/wfs',
-    typeName: 'geoportal:localidades',
+  agregarWFS(map, {
+    id: 'centrosInvestigacion',
+    url: 'https://dev-dadsig-gema.crip.conahcyt.mx/geoserver/wfs',
+    typeName: 'humanidades_ciencias:hcti_centros_invest_conahcyt_0421_xy_p',
     layerType: 'circle',
-    color: '#EF4444',
+    color: '#6000faff',
     popupTemplate: (props) => `<b>${props.NOM_LOC}</b><br>Municipio: ${props.NOM_MUN}`
   });
 });
